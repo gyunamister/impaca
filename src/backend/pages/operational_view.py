@@ -92,7 +92,7 @@ tab1_content = dbc.Row(
 
 )
 
-# diagnostics_input = dbc.FormGroup(
+# diagnostics_input = html.Div(
 #     [
 #         dbc.Label("Diagnostics"),
 #         dcc.Dropdown(id='diagnostics-dropdown'),
@@ -103,7 +103,7 @@ tab1_content = dbc.Row(
 #     ]
 # )
 
-# comparator_input = dbc.FormGroup(
+# comparator_input = html.Div(
 #     [
 #         dbc.Label("Comparator"),
 #         dcc.Dropdown(id='comp-operators-dropdown',
@@ -115,7 +115,7 @@ tab1_content = dbc.Row(
 #     ]
 # )
 
-# threshold_input = dbc.FormGroup(
+# threshold_input = html.Div(
 #     [
 #         dbc.Label("Threshold"),
 #         html.Br(),
@@ -128,7 +128,7 @@ tab1_content = dbc.Row(
 #     ]
 # )
 
-# name_input = dbc.FormGroup(
+# name_input = html.Div(
 #     [
 #         dbc.Label("Name"),
 #         html.Br(),

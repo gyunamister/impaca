@@ -40,7 +40,10 @@ def store_redis(data, task):
     db.set(key, pickled_object)
 
 
-db = redis.StrictRedis(host='localhost', port=6379, password=redis_pwd, db=0)
+redis_host = os.getenv('REDIS_LOCALHOST_OR_DOCKER')
+db = redis.StrictRedis(host=redis_host, port=6379, password=redis_pwd, db=0)
+
+# db = redis.StrictRedis(host='localhost', port=6379, password=redis_pwd, db=0)
 
 db.keys()
 celery = Celery('dtween.worker',

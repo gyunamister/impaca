@@ -121,8 +121,11 @@ for message in iter(sys.stdin.readline, ''):
     if message == "start":
         break
 
-path = pathlib.Path().resolve().parent.parent.absolute()
-output_path = f"{path}/example-files/p2p-example/p2p-streaming-ocel.jsonocel"
+path = pathlib.Path().resolve().parent.absolute()
+print(path)
+output_path = f"{path}/demo_system/p2p-streaming-ocel.jsonocel"
+print(output_path)
+output_path = f"../demo_system/p2p-streaming-ocel.jsonocel"
 
 simulation = control_simulate(model, streaming_output_log=output_path)
 # log = simulation.get_log()

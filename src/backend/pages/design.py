@@ -1,4 +1,5 @@
 from flask import request
+import pathlib
 from backend.param.settings import CeleryConfig, redis_pwd
 from time import sleep
 import redis
@@ -86,7 +87,7 @@ buttons = dbc.Row(
     ], justify='start', className="g-0",
 )
 
-guards_form = dbc.FormGroup(
+guards_form = html.Div(
     [
         dbc.Label("Guards"),
         dash_table.DataTable(
@@ -110,7 +111,7 @@ guards_form = dbc.FormGroup(
     ]
 )
 
-valves_form = dbc.FormGroup(
+valves_form = html.Div(
     [
         dbc.Label("Valves"),
         dash_table.DataTable(
@@ -133,7 +134,7 @@ valves_form = dbc.FormGroup(
     ]
 )
 
-# writes_form = dbc.FormGroup(
+# writes_form = html.Div(
 #     [
 #         dbc.Label("Writes"),
 #         dash_table.DataTable(
@@ -156,7 +157,7 @@ valves_form = dbc.FormGroup(
 #     ]
 # )
 
-activity_variants_form = dbc.FormGroup(
+activity_variants_form = html.Div(
     [
         dbc.Label("Activity Variant"),
         dash_table.DataTable(
@@ -507,6 +508,12 @@ def connect_to_system(content, old_log_dir, old_config_dir):
         data, success = parse_contents(content, JSON)
         log_dir = data['dir-event-stream']
         config_dir = data['dir-system-config']
+        path = pathlib.Path().resolve().parent.absolute()
+        import glob
+        print(path)
+        print(glob.glob("{path}/*"))
+        log_dir = f"{path}/demo_system/p2p-streaming-ocel.jsonocel"
+        config_dir = f"{path}/demo_system/p2p-config.json"
         return log_dir, config_dir
     else:
         return old_log_dir, old_config_dir

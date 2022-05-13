@@ -122,6 +122,19 @@ The impact analysis aims to analyze the impact of the action instance by continu
 
 ## Deployment
 
+### Automatic
+For automatic and platform-independent deployment, simply execute the following commands:
+```shell script
+git clone https://github.com/gyunamister/impacta.git
+cd src/
+docker-compose up
+```
+After installations, the web service is available at *127.0.0.1/8050*. 
+The default username is *admin*, and the default password is *test123* for logging into the system.
+If you would like the Dash web service to run in debug mode, then change the value of the environment variable **DEBUG_MODE** in the [env file](src/.env) to **true**.
+
+Example logs are available at [examples](example-files/).
+
 ### Manual
 
 Please make sure to install the binaries of [Graphviz](https://graphviz.org/) and [Python 3.8.3](https://www.python.org/downloads/release/python-383/) before you proceed. In the following, shell scripts are developed for the zsh, so if you use a different shell, then you need to modify the scripts accordingly.
@@ -167,7 +180,7 @@ chmod +x ./run_dtween.sh
 ./run_dtween.sh
 ```
 
-The default username is admin, and the default password is test123 for logging into the system available at 127.0.0.1/8051.
+The default username is admin, and the default password is test123 for logging into the system available at 127.0.0.1/8050.
 
 ### Automatic
 

@@ -28,8 +28,13 @@ import pickle
 import redis
 from time import sleep
 from backend.param.settings import redis_pwd
+import os
 
-db = redis.StrictRedis(host='localhost', port=6379, password=redis_pwd, db=0)
+CELERY_TIMEOUT = 21600
+
+
+def user_log_key(user, log_hash):
+    return f'{user}-{log_hash}'
 
 
 def results_key(task_id):
@@ -40,6 +45,10 @@ def store_redis(data, task):
     key = results_key(task)
     pickled_object = pickle.dumps(data)
     db.set(key, pickled_object)
+
+
+redis_host = os.getenv('REDIS_LOCALHOST_OR_DOCKER')
+db = redis.StrictRedis(host=redis_host, port=6379, password=redis_pwd, db=0)
 
 
 def get_redis_data(task):

@@ -107,7 +107,7 @@ diagnostics_date_picker = html.Div([
     ),
 ])
 
-diagnostics_input = dbc.FormGroup(
+diagnostics_input = html.Div(
     [
         dbc.Label("Object-centric Performance Metric"),
         dcc.Dropdown(id='performance-metrics-dropdown', options=[
@@ -119,7 +119,7 @@ diagnostics_input = dbc.FormGroup(
     ]
 )
 
-aggregator_input = dbc.FormGroup(
+aggregator_input = html.Div(
     [
         dbc.Label("Aggregation"),
         dcc.Dropdown(id='aggregator-dropdown',
@@ -131,7 +131,7 @@ aggregator_input = dbc.FormGroup(
     ]
 )
 
-object_projection_input = dbc.FormGroup(
+object_projection_input = html.Div(
     [
         dbc.Label("Select object types", html_for="example-password"),
         dcc.Dropdown(id='object-proj-dropdown', multi=True),
@@ -141,7 +141,7 @@ object_projection_input = dbc.FormGroup(
     ]
 )
 
-subprocess_projection_input = dbc.FormGroup(
+subprocess_projection_input = html.Div(
     [
         dbc.Label("Select activities", html_for="example-password"),
         dcc.Dropdown(id='subprocess-proj-dropdown', multi=True),

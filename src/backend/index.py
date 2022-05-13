@@ -167,13 +167,13 @@ if __name__ == '__main__':
     if localhost_or_docker == 'localhost':
         app.run_server(
             debug=debug,
-            port=8051,
+            port=8050,
             dev_tools_hot_reload=False, use_reloader=False
         )
     else:
         app.run_server(
             host='0.0.0.0',
             debug=debug,
-            port=8051,
+            port=8050,
             dev_tools_hot_reload=True, use_reloader=False
         )
